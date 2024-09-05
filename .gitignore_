@@ -1,0 +1,19 @@
+# Игнорировать все папки
+/*/
+# Не игнорировать нужные папки
+!/WSS_4.6/
+!/WSS_12_04-2023/
+!/WSS/
+!/Wpf_OPC_UA/
+!/WpfWSS_CS/
+!/WpfOOP_Test/
+!/WpfNET/
+!/WebMVC/
+!/OPCua-WPF/
+!/OPC-UA_Client/
+!/Blazor_WSS_CS/
+!/ASP_TEST/
+!*.rar
+!*.docx
+!ssh.key
+!ssh_key.pub
