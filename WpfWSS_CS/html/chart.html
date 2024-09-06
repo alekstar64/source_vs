@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        // Задайте ваш диапазон
+        const lowerBound = 10;
+        const upperBound = 50;
+
+        // Пример данных
+        const data = [5, 12, 35, 55, 45, 25, 65, 10];
+
+        // Цвета для точек данных
+        const pointBackgroundColors = data.map(value => {
+            if (value < lowerBound || value > upperBound) {
+                return 'red'; // Цвет для значений за пределами диапазона
+            }
+            return 'blue'; // Цвет для значений в пределах диапазона
+        });
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+                datasets: [{
+                    label: 'My Dataset',
+                    data: data,
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                    borderColor: 'blue',
+                    borderWidth: 1,
+                    pointBackgroundColor: pointBackgroundColors, // Применяем цвета для точек
+                    pointRadius: 5 // Устанавливаем размер точек
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

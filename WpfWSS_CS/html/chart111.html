@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Multi-series Chart.js Example with Multiple Y-Axes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        /* Стили для контейнера графика */
+        .chart-container {
+            position: relative;
+            width: 800px;
+/*            width: 100%;*/
+            height: 400px; /* Можно настроить высоту как нужно */
+        }
+
+        /* Стили для canvas */
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <canvas id="realTimeChart"></canvas>
+    </div>
+    <script>
+        const config = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: 'Series 1',
+                        data: [], // Данные первой серии
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        fill: false,
+                        tension: 0.4, // Значение сглаживания для первой серии
+                        yAxisID: 'y1', // Привязка к первой оси Y
+			radius: 0
+                    },
+                    {
+                        label: 'Series 2',
+                        data: [], // Данные второй серии
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1,
+                        fill: false,
+                        tension: 0.0, // Значение сглаживания для второй серии
+                        yAxisID: 'y2', // Привязка к первой оси Y
+			radius: 0
+                    }
+                ]
+            },
+            options: {
+                scales: {
+		    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'second',
+                            displayFormats: {
+                                second: 'HH:mm:ss' // Формат отображения времени
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Time'  ,
+	                    fontSize: 4 // Размер шрифта для меток времени
+                        },
+		        ticks: {
+                	    font: {
+	                    size: 10 // Размер шрифта для меток оси X
+        	        }
+            }
+                    },
+                    y1: {
+                        type: 'linear',
+                        position: 'left',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Series 1 Values'
+                        }
+                    },
+                    y2: {
+                        type: 'linear',
+                        position: 'left',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Series 2 Values'
+                        },
+                        grid: {
+                            drawOnChartArea: false // Отключает отображение сетки для правой оси Y
+                        }
+                    }
+                },
+		plugins: {
+                    legend: {
+                        position: 'right' // Перемещаем легенду направо
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false // Отключаем анимацию
+            }
+        };
+
+        const ctx = document.getElementById('realTimeChart').getContext('2d');
+        const realTimeChart = new Chart(ctx, config);
+
+        const timeWindow = 20 * 1000; // Временное окно в миллисекундах (например, 20 секунд)
+
+        function addData(seriesIndex, value, timestamp) {
+            const dataset = config.data.datasets[seriesIndex];
+
+            // Добавляем новые данные
+            dataset.data.push({ x: timestamp, y: value });
+
+            // Удаляем старые данные, которые выходят за пределы временного окна
+            const cutoffTime = Date.now() - timeWindow;
+            dataset.data = dataset.data.filter(point => point.x >= cutoffTime);
+
+            realTimeChart.update();
+        }
+
+        // Имитация получения данных в реальном времени
+        setInterval(() => {
+            const now = new Date();
+            const value1 = Math.random() * -90; // Случайное значение для серии 1
+            const value2 = Math.random() * 1000; // Случайное значение для серии 2
+            addData(0, value1, now);
+            if (value2 > 50) {
+                addData(1, value2, now);
+            }
+        }, 100); // Обновляем данные каждые 100 миллисекунд
+    </script>
+</body>
+</html>

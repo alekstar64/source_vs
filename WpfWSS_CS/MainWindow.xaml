@@ -1,0 +1,160 @@
+﻿<!-- x:Name="netservice" -->
+    <Window x:Class="WpfWSS_CS.MainWindow"        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWSS_CS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="665" Width="890" Loaded="netservice_Loaded" Closing="netservice_Closing" Closed="netservice_Closed">
+    <Grid x:Name="Grid1" Margin="0,0,25,-31" >
+        <!-- Grid x:Name="Grid1" Height="640" Width="855" -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="446*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Grid Margin="428,276,-37,152"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="397*" />
+                <ColumnDefinition Width="14*" />
+                <ColumnDefinition Width="82*" />
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+        <Label Height="25" x:Name="lbl_Client" Width="850" BorderThickness="1" BorderBrush="#FF270707" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,218,0,0" FontFamily="Courier New" FontWeight="SemiBold" Content="Total clients : 0" />
+
+        <GroupBox Header="Total received:" Height="104" HorizontalAlignment="Left" Margin="441,32,0,0" x:Name="GroupBox1" VerticalAlignment="Top" Width="146">
+            <Grid>
+                <Label Content="Packages:" Height="27" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="Label1" VerticalAlignment="Top" Width="58" />
+                <Label Content="KBytes :" HorizontalAlignment="Left" Margin="6,22,0,31" x:Name="Label2" Width="58" />
+                <Label Content="Error:" Height="27" HorizontalAlignment="Left" Margin="6,47,0,0" x:Name="Label3" VerticalAlignment="Top" Width="58" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="70,0,0,0" x:Name="lbl_Pac" VerticalAlignment="Top" Width="64" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="70,22,0,0" x:Name="lbl_Byte" VerticalAlignment="Top" Width="64" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="70,47,0,0" x:Name="lbl_Err" VerticalAlignment="Top" Width="64" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Total sended:" Height="104" HorizontalAlignment="Left" Margin="597,32,0,0" x:Name="GroupBox2" VerticalAlignment="Top" Width="148">
+            <Grid>
+                <Label Content="Packages:" Height="27" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="Label4" VerticalAlignment="Top" Width="58" />
+                <Label Content="KBytes :" HorizontalAlignment="Left" Margin="6,22,0,31" x:Name="Label5" Width="58" />
+                <Label Content="Error:" Height="27" HorizontalAlignment="Left" Margin="6,47,0,0" x:Name="Label6" VerticalAlignment="Top" Width="58" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="70,0,0,0" x:Name="lbl_PAC_REC" VerticalAlignment="Top" Width="66" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="70,22,0,0" x:Name="lbl_Byte_REC" VerticalAlignment="Top" Width="66" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="70,47,0,0" x:Name="lbl_ERR_REC" VerticalAlignment="Top" Width="66" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Received last sec.:" Height="66" HorizontalAlignment="Left" Margin="441,140,0,0" x:Name="GroupBox3" VerticalAlignment="Top" Width="148">
+            <Grid Height="79" Width="136">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="49*" />
+                    <ColumnDefinition Width="86*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Packages:" Height="27" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="Label7" VerticalAlignment="Top" Width="58" Grid.ColumnSpan="2" />
+                <Label Content="KBytes :" HorizontalAlignment="Left" Margin="6,22,0,31" x:Name="Label8" Width="58" Grid.ColumnSpan="2" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="21,22,0,0" x:Name="lbl_Byte_S" VerticalAlignment="Top" Width="59" Grid.Column="1" />
+                <Label Content="0" Height="27" HorizontalAlignment="Left" Margin="21,0,0,0" x:Name="lbl_PAC_S" VerticalAlignment="Top" Width="59" Grid.Column="1" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Sended last sec.:" Height="66" HorizontalAlignment="Left" Margin="597,140,0,0" x:Name="GroupBox4" VerticalAlignment="Top" Width="148">
+            <Grid Height="79">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="49*" />
+                    <ColumnDefinition Width="86*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Packages:" Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="Label9" VerticalAlignment="Top" Width="58" />
+                <Label Content="KBytes :" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="6,22,0,31" x:Name="Label10" Width="58" />
+                <Label Content="0" Grid.Column="1" Height="27" HorizontalAlignment="Left" Margin="21,0,0,0" x:Name="lbl_PAC_S_REC" VerticalAlignment="Top" Width="59" />
+                <Label Content="0" Grid.Column="1" Height="27" HorizontalAlignment="Left" Margin="21,22,0,0" x:Name="lbl_Byte_S_REC" VerticalAlignment="Top" Width="59" />
+            </Grid>
+        </GroupBox>
+        <TextBox Height="24" HorizontalAlignment="Left" Margin="22,596,0,0" x:Name="txt_kill_Cl" Text="0" VerticalAlignment="Top" Width="37" />
+        <Button Content="Kill Client" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="92,596,0,9" x:Name="cmd_Kill_Cl" Width="100" Click="cmd_Kill_Cl_Click" />
+        <Label Content="Started" Height="24" HorizontalAlignment="Left" Margin="5,0,0,0" x:Name="lbl_Start" VerticalAlignment="Top" Width="165" />
+
+        <Label Content="Current time" Height="24" HorizontalAlignment="Left" Margin="184,0,0,0" x:Name="lbl_Time" VerticalAlignment="Top" Width="123" />
+        <!-- ListBox>av:ItemsSource="{av:SampleData ItemCount=5}" -->
+        <ListBox x:Name="lst_Clients" HorizontalAlignment="Left" Height="320" Margin="10,248,0,0" VerticalAlignment="Top" Width="845"  />
+        <TabControl HorizontalAlignment="Left" Height="186" Margin="0,29,0,0" VerticalAlignment="Top" Width="428" HorizontalContentAlignment="Left">
+
+            <TabItem Header="App setting">
+                <Grid Background="#FFFFFF" Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="269*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="31" HorizontalAlignment="Left" Margin="10,64,0,0" x:Name="Json" VerticalAlignment="Top" Width="306" Grid.ColumnSpan="5" />
+                    <Slider x:Name="sl_Capacity" HorizontalAlignment="Left" Height="19" Margin="8,32,0,0" VerticalAlignment="Top" Width="140" Minimum="10" Maximum="1000" Value="1" SmallChange="10" SelectionStart="8" Grid.Column="3" Grid.ColumnSpan="2" ValueChanged="sl_Capacity_ValueChanged" />
+                    <Label Content="Refresh time (mSec) :" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lbl_Capacity" Content="1" HorizontalAlignment="Left" Margin="133,25,0,0" VerticalAlignment="Top" Width="42" Grid.Column="4"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="178,0,0,0" VerticalAlignment="Center" Click="Button_Click" Height="26" Width="57" Grid.Column="4"/>
+                    <Label x:Name="lbl_test" Grid.Column="4" Content="Label" HorizontalAlignment="Left" Margin="193,18,0,0" VerticalAlignment="Top"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header=" ScreenShort ">
+                <Grid Background="#FFFFFFFF" Margin="10,0,-10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="140*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="235*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Window" HorizontalAlignment="Left" Height="26" Margin="6,10,0,0" VerticalAlignment="Top" Width="63" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <Label Content="From left " HorizontalAlignment="Left" Height="26" Margin="6,41,0,0" VerticalAlignment="Top" Width="63" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <Label Content="From up " HorizontalAlignment="Left" Height="26" Margin="6,0,0,0" VerticalAlignment="Center" Width="63" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <Label Content="Width" HorizontalAlignment="Left" Height="26" Margin="6,92,0,0" VerticalAlignment="Top" Width="63" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <Label Content="Height " HorizontalAlignment="Left" Height="26" Margin="6,118,0,0" VerticalAlignment="Top" Width="63" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <Label x:Name="lbl_Left" Content="0" HorizontalAlignment="Left" Height="26" Margin="46,41,0,0" VerticalAlignment="Top" Width="63" Grid.Column="3"/>
+                    <Label x:Name="lbl_UP" Content="0 " HorizontalAlignment="Left" Height="26" Margin="46,0,0,0" VerticalAlignment="Center" Width="63" Grid.Column="3"/>
+                    <Label x:Name="lbl_Width" Content="0" HorizontalAlignment="Left" Height="26" Margin="46,92,0,0" VerticalAlignment="Top" Width="63" Grid.Column="3"/>
+                    <Label x:Name="lbl_Height" Content="0 " HorizontalAlignment="Left" Height="26" Margin="46,118,0,0" VerticalAlignment="Top" Width="63" Grid.Column="3"/>
+                    <Button x:Name="Btn_FIX_Area" Content="Fix work area" HorizontalAlignment="Left" Height="26" Margin="96,72,0,0" VerticalAlignment="Top" Width="149" Grid.Column="3" Grid.ColumnSpan="3" Click="Btn_FIX_Area_Click"/>
+                    <Image x:Name="Img_Preview" HorizontalAlignment="Left" Height="43" Margin="142,105,0,0" VerticalAlignment="Top" Width="75"  Grid.Column="5"/>
+                    <CheckBox x:Name="AutoStart" Content="AutoStart for next time" HorizontalAlignment="Left" Height="21" Margin="96,105,0,0" VerticalAlignment="Top" Width="149" Grid.Column="3" Grid.ColumnSpan="3" Click="AutoStart_Click" />
+                    <Slider x:Name="sl_Ouality" HorizontalAlignment="Left" Height="19" Margin="38,17,0,0" VerticalAlignment="Top" Width="140" Minimum="0.1" Maximum="1" Value="1" SmallChange="0.1" SelectionStart="8" Grid.Column="5" ValueChanged="sl_Ouality_ValueChanged" />
+                    <Label x:Name="lbl_Quality" Content="1" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Width="42" Grid.Column="5"/>
+                    <Button x:Name="Btn_Action" Content="Start/Stop" HorizontalAlignment="Left" Height="26" Margin="96,126,0,0" VerticalAlignment="Top" Width="144" Grid.Column="3" Grid.ColumnSpan="3" Click="Btn_Action_Click"/>
+                    <Label Content="Jpeg quality %:" HorizontalAlignment="Left" Margin="62,9,0,0" VerticalAlignment="Top" Width="122" Grid.Column="3" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lbl_Quality_Copy" Content="1" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Width="42" Grid.Column="5"/>
+                    <Slider x:Name="sl_Refresh_Intervel" HorizontalAlignment="Left" Height="19" Margin="38,48,0,0" VerticalAlignment="Top" Width="140" Minimum="10" Maximum="10000" Value="1" SmallChange="10" SelectionStart="8" Grid.Column="5" ValueChanged="sl_Refresh_Intervel_ValueChanged"  />
+                    <Label Content="Refresh interval:" HorizontalAlignment="Left" Margin="62,41,0,0" VerticalAlignment="Top" Width="122" Grid.Column="3" Grid.ColumnSpan="3"/>
+                    <Label x:Name="lbl_Refreh_Interval" Content="1" HorizontalAlignment="Left" Margin="183,41,0,0" VerticalAlignment="Top" Width="42" Grid.Column="5"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Proxy setting">
+                <Grid Background="#FFFFFF" Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="88*"/>
+                        <ColumnDefinition Width="22*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="269*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Memory size(GC):" HorizontalAlignment="Left" Margin="13,-270,0,0" VerticalAlignment="Top" Width="107" Grid.ColumnSpan="3"/>
+
+                    <Slider x:Name="sl__Capacity" HorizontalAlignment="Left" Height="19" Margin="8,32,0,0" VerticalAlignment="Top" Width="140" Minimum="10" Maximum="1000" Value="1"  SmallChange="10" SelectionStart="8" Grid.Column="4" Grid.ColumnSpan="2" />
+                    <Label Content="_Refresh time (mSec) :" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="4"/>
+                    <Label x:Name="lbl_" Content="1" HorizontalAlignment="Left" Margin="133,25,0,0" VerticalAlignment="Top" Width="42" Grid.Column="5"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="178,0,0,0" VerticalAlignment="Center" Click="Button_Click" Height="26" Width="57" Grid.Column="5"/>
+                    <CheckBox x:Name="Proxy_Auto_Start" Content="AutoStart Proxy for next time" HorizontalAlignment="Left" Height="21" Margin="13,56,0,0" VerticalAlignment="Top" Width="149" Grid.ColumnSpan="6"/>
+                    <TextBlock x:Name="Proxy_Ini_String0" HorizontalAlignment="Left" Margin="17,82,0,0" TextWrapping="Wrap" Text="Proxy_Ini_String" VerticalAlignment="Top" Grid.ColumnSpan="6" Height="28" Width="225" Background="#FFEEE7E7" ScrollViewer.CanContentScroll="True"/>
+                    <TextBox x:Name="Proxy_Ini_String" HorizontalAlignment="Left" Height="47" Margin="71,96,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="317" Grid.ColumnSpan="6"/>
+                </Grid>
+            </TabItem>
+            <Label Content="Label"/>
+        </TabControl>
+
+        <Label Content="0" x:Name="lblmem" HorizontalAlignment="Left" Margin="660,1,0,0" VerticalAlignment="Top" Width="195" Background="#FFFDF9F9"/>
+        <Label Content="Memory size(GC):" HorizontalAlignment="Left" Margin="548,0,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button Content="Save All" HorizontalAlignment="Left" Height="23" Margin="356,1,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1"/>
+        <Label x:Name="lbl_screenshrt_state" Content="SS = False" HorizontalAlignment="Left" Margin="805,47,0,0" VerticalAlignment="Top" Height="25"/>
+    </Grid>
+</Window>
