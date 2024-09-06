@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{596B1128-1F34-492E-AA63-9D7F0E35D8A0}|OPC-UA_Client.csproj|c:\\users\\alekstar\\source\\repos\\opc-ua_client\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{596B1128-1F34-492E-AA63-9D7F0E35D8A0}|OPC-UA_Client.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{596B1128-1F34-492E-AA63-9D7F0E35D8A0}|OPC-UA_Client.csproj|c:\\users\\alekstar\\source\\repos\\opc-ua_client\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{596B1128-1F34-492E-AA63-9D7F0E35D8A0}|OPC-UA_Client.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{596B1128-1F34-492E-AA63-9D7F0E35D8A0}|OPC-UA_Client.csproj|c:\\users\\alekstar\\source\\repos\\opc-ua_client\\opc-ua_client.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{596B1128-1F34-492E-AA63-9D7F0E35D8A0}|OPC-UA_Client.csproj|solutionrelative:opc-ua_client.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OPC-UA_Client",
+              "DocumentMoniker": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\OPC-UA_Client.csproj",
+              "RelativeDocumentMoniker": "OPC-UA_Client.csproj",
+              "ToolTip": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\OPC-UA_Client.csproj",
+              "RelativeToolTip": "OPC-UA_Client.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-17T13:32:54.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-16T18:00:25.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\alekStar\\source\\repos\\OPC-UA_Client\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "MainWindow.xaml.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T18:00:24.13Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
